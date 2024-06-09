@@ -1,0 +1,26 @@
+{
+  "name": "directus-starter",
+  "version": "0.0.1",
+  "description": "This is the starter template that I use when creating a new project with Directus. I find configuring Directus from scratch each time very annoying, so I created this template to save time.",
+  "keywords": [
+    "directus",
+    "directus-starter",
+    "template",
+    "directus-extension-sync"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Behon Baker",
+    "email": "behon.baker@yahoo.com",
+    "url": "https://behonbaker.com"
+  },
+  "scripts": {
+    "start": "docker compose up -d",
+    "sync:pull": "npx --yes directus-sync pull",
+    "sync:push": "npx --yes directus-sync push",
+    "sync:diff": "npx --yes directus-sync diff"
+  },
+  "dependencies": {
+    "directus-extension-sync": "^2.0.0"
+  }
+}

@@ -1,0 +1,43 @@
+services:
+  database:
+    image: postgres
+    restart: always
+    shm_size: 128mb
+    ports:
+      - "5433:5432" # Change the port if you have a local database running
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USER}
+
+  adminer:
+    image: adminer
+    restart: always
+    depends_on:
+      - database
+    ports:
+      - "8080:8080"
+
+  redis:
+    image: redis:6
+
+  directus:
+    image: directus/directus:10
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+    depends_on:
+      - database
+      - redis
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - ${STORAGE_LOCAL_ROOT}:/directus/uploads
+      - ./extensions:/directus/extensions
+      - ${EMAIL_TEMPLATES_PATH}:/directus/templates
+
+volumes:
+  pg-data:
