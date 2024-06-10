@@ -77,7 +77,7 @@ npm run start
 
 8. Reinstall the Directus Extension Sync tool:
 
-Go to `Settings` > `Extensions`. You will see an extension UID. Click the three little dots and then select `Reinstall`.
+Go to `Settings` > `Marketplace` and search for `directus-extension-sync`. Install the extension.
 
 9. Restart the Directus instance:
 
