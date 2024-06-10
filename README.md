@@ -75,15 +75,25 @@ npm run start
 
 7. Login with the credentials you provided in the `.env` file (Admin Email and Admin Password).
 
-8. Install the Directus Extension Sync tool:
+8. Reinstall the Directus Extension Sync tool:
 
-Go to `Settings` > `Marketplace` and search for `directus-extension-sync`. You will see the one provided by `edouarddemotes`. Install this extension. This extension will allow you to sync data between Directus instances.
+Go to `Settings` > `Extensions`. You will see an extension UID. Click the three little dots and then select `Reinstall`.
 
 9. Restart the Directus instance:
 
 ```bash
 docker compose down && docker compose up -d
 ```
+
+Once the instance is up and running, you can run the `sync:pull` command to pull the schema and collections from the Directus instance.
+
+```bash
+npm run sync:pull
+```
+
+This will create a `directus-config` directory in the root of the project with the schema and collections from the Directus instance.
+
+Be sure to commit this directory to your repository so that you can sync the data between your different environments.
 
 ## Configuration
 
