@@ -36,7 +36,7 @@ services:
       - "${PORT}:${PORT}"
     volumes:
       - ${STORAGE_LOCAL_ROOT}:/directus/uploads
-      - ./extensions:/directus/extensions
+      - ${EXTENSIONS_PATH}:/directus/extensions
       - ${EMAIL_TEMPLATES_PATH}:/directus/templates
 
 volumes:
