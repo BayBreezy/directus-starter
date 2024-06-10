@@ -15,7 +15,8 @@
     "url": "https://behonbaker.com"
   },
   "scripts": {
-    "start": "docker compose up -d",
+    "dev": "docker compose up -d",
+    "start": "docker compose up -d database redis directus",
     "sync:pull": "npx --yes directus-sync pull",
     "sync:push": "npx --yes directus-sync push",
     "sync:diff": "npx --yes directus-sync diff"
