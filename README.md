@@ -73,6 +73,18 @@ npm run start
 
 6. Open your browser and navigate to `http://localhost:8055` to access the Directus admin panel.
 
+7. Login with the credentials you provided in the `.env` file (Admin Email and Admin Password).
+
+8. Install the Directus Extension Sync tool:
+
+Go to `Settings` > `Marketplace` and search for `directus-extension-sync`. You will see the one provided by `edouarddemotes`. Install this extension. This extension will allow you to sync data between Directus instances.
+
+9. Restart the Directus instance:
+
+```bash
+docker compose down && docker compose up -d
+```
+
 ## Configuration
 
 The main configuration file for Directus is the `.env` file located in the root directory. Ensure you update this file with your specific configuration settings.
